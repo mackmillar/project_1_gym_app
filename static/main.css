@@ -25,10 +25,35 @@ body {
     text-align: left;
     font: normal normal 600 35px/53px Poppins;
     color: #121212;
+    padding-bottom: 1000px;
 }
+
 
 #members-wrap {
     width: 60%;
     height: 100%;
     margin: 5em;
 }
+
+.button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #206DEE;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+}
+#members-list {
+    margin-top: 50px;
+}
+
+
+main {
+    margin-left: 450px; 
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+  }

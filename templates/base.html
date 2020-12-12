@@ -14,19 +14,18 @@
     <div id="members-wrap">
     <h2>Members</h2>
 
-    {% for member in members %}
+    <a class="button" href="/members/new">+ Create member</a>
 
-    <section>
-        
-        <h3>{{ member.name }}</h3>
-
-    </section>
-
-    {% endfor %}
+        <section id="members-list">
+            {% for member in members %}
+                <h3>{{ member.name }}</h3>
+            {% endfor %}
+        </section>
     </div>
 </section>
-
+    <main>
     {% block content %}
     {% endblock %}
+    </main>
 </body>
 </html>
