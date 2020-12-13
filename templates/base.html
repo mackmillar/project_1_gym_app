@@ -18,12 +18,19 @@
 
         <section id="members-list">
             {% for member in members %}
-                <h3>{{ member.name }}</h3>
+            <section class="member-tile">
+                <h3><a href="/members/{{ member.id }}/edit">{{ member.name }}</a></h3>  
+            </section>
             {% endfor %}
         </section>
     </div>
 </section>
     <main>
+        <header>
+            <svg xmlns="http://www.w3.org/2000/svg" width="111" height="35" viewBox="0 0 111 35">
+                <text id="_-dash-" data-name="-dash-" fill="#216fed" font-size="25" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="26">-</tspan><tspan y="26" fill="#121212">DASH</tspan><tspan y="26">-</tspan></text>
+            </svg>
+        </header>
     {% block content %}
     {% endblock %}
     </main>

@@ -43,6 +43,19 @@ def update(session):
     values = [session.title, session.date, session.description, session.id]
     run_sql(sql, values)
 
+def members(session):
+    members = []
+
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.members_id = members.id WHERE sessions_id = %s"
+    values = [session.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row['name'], row['email'], row['id'])
+        members.append(member)
+
+    return members
+
 def select_attendees_of_session(id):
     attendees = []
     sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.session_id = %s"

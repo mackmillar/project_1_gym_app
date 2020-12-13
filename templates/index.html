@@ -1,6 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 
-This will be the home page.
+<section >
+    <h3> Create booking</h3>
+    <hr>
 
+    <form action="/bookings" method="POST" id="booking-section">
+        <div>
+            <label for="member">Member:</label>
+            <select name="member_id" id="member">
+                {% for member in members %}
+                <option value="{{ member.id }}">
+                    {{ member.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="session">Class:</label>
+            <select name="session_id" id="session">
+                {% for session in sessions %}
+                <option value="{{ session.id }}">
+                    {{ session.title }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+    
+</section>
+<section>
+<hr>
+<h3>Upcoming classes</h3>
+{% for session in sessions %}
+
+<section>
+    <h5>{{ session.date }}</h5>
+    <h2>{{ session.title }}</h2>
+    <p>{{ session.description }}</p>
+</section>
+
+{% endfor %}
+</section>
 {% endblock %}

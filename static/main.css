@@ -1,6 +1,7 @@
 body {
     background-color: #FAFAFA;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 .sidenav {
@@ -28,11 +29,28 @@ body {
     padding-bottom: 1000px;
 }
 
-
 #members-wrap {
     width: 60%;
     height: 100%;
     margin: 5em;
+}
+.member-tile a {
+    color: #121212;
+    text-decoration: none;
+}
+
+.member-tile{
+    color: #121212;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.member-tile:hover{
+    color: #121212;
+    text-decoration: none;
+    background-color: white;
+}
+.member-tile {
+    padding: 0.5em;
 }
 
 .button {
@@ -51,9 +69,37 @@ body {
 }
 
 
+hr {
+    border-top: 2px solid #EBEBEB;
+}
+
 main {
     margin-left: 450px; 
-    padding: 0px 10px;
+    padding: 2% 6%;
     display: flex;
+    align-content: center;
     justify-content: center;
+    flex-direction: column;
+    
   }
+
+  #booking-section {
+    background-color: rgb(255, 255, 255);
+    height: 15em;
+    width: 95%;
+    display: flex;
+    margin-left: 2.5%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-bottom: 4em;
+    margin-top: 4em;
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5em;
+}

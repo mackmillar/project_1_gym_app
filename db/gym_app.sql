@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS bookings;
-DROP TABLE IF EXISTS sessions;
 DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS sessions;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE sessions (
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
-    members_id SERIAL REFERENCES members(id),
-    sessions_id SERIAL REFERENCES sessions(id)
+    member_id SERIAL REFERENCES members(id) ON DELETE CASCADE,
+    session_id SERIAL REFERENCES sessions(id) ON DELETE CASCADE
 );
 
