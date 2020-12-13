@@ -16,4 +16,4 @@ def create_booking():
     session = session_repository.select(session_id)
     new_booking = Booking(member, session)
     booking_repository.save(new_booking)
-    
+    return redirect("/")

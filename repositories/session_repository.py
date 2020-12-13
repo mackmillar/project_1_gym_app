@@ -46,7 +46,7 @@ def update(session):
 def members(session):
     members = []
 
-    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.members_id = members.id WHERE sessions_id = %s"
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.session_id = %s"
     values = [session.id]
     results = run_sql(sql, values)
 

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{session.title}} </h1>
+
+<p>Date: {{ session.date}}</p>
+
+<p>Date: {{ session.description}}</p>
+
+<h3>Attending:</h3>
+
+<ul>
+    {% for member in attending %}
+    <li>{{member.name}}</li>
+    {% endfor %}
+</ul>
+<a class="button" href="/sessions/{{ session.id }}/edit">Edit class</a>
+
+{% endblock %}

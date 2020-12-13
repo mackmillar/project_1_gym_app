@@ -6,9 +6,9 @@
     <hr>
 
     <form action="/bookings" method="POST" id="booking-section">
-        <div>
+        <div >
             <label for="member">Member:</label>
-            <select name="member_id" id="member">
+            <select name="member_id" id="dropdown">
                 {% for member in members %}
                 <option value="{{ member.id }}">
                     {{ member.name }}
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label for="session">Class:</label>
-            <select name="session_id" id="session">
+            <select name="session_id" id="dropdown">
                 {% for session in sessions %}
                 <option value="{{ session.id }}">
                     {{ session.title }}
@@ -27,22 +27,31 @@
             </select>
         </div>
         <div>
-            <input type="submit">
+            <input type="submit" value="submit">
         </div>
     </form>
     
 </section>
-<section>
-<hr>
-<h3>Upcoming classes</h3>
-{% for session in sessions %}
+
+
 
 <section>
+
+    <div id="create-class-wrap">
+        <h3>Upcoming classes</h3>
+        <a class="button" href="/sessions/new">+ Create class</a>
+    </div>
+
+<hr>
+
+{% for session in sessions %}
+<a class="session-links" href="/sessions/{{ session.id }}">
+<section class="session-tile">
     <h5>{{ session.date }}</h5>
     <h2>{{ session.title }}</h2>
     <p>{{ session.description }}</p>
 </section>
-
+</a>
 {% endfor %}
 </section>
 {% endblock %}

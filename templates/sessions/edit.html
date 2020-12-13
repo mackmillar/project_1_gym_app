@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Edit this Class</h2>
+<h1> {{session.title }} </h1>
+
+<p>Date: {{ session.date }}</p>
+
+<p>Date: {{ session.description }}</p>
+
+<h3>Attending:</h3>
+
+<ul>
+    {% for member in attending %}
+    <li>{{member.name}}</li>
+    {% endfor %}
+</ul>
+
+<form action="/sessions/{{ session.id }}" method="POST">
+    <div>
+        <label for="title">Class title:</label>
+        <input type="text" id="title" name="title" value="{{ session.tilte }}">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" value="{{ session.date }}">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ session.description }}">
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}
