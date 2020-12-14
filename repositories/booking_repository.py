@@ -47,3 +47,8 @@ def update(booking):
     sql = "UPDATE bookings SET (member_id, session_id) = (%s, %s) WHERE id = %s"
     values = [booking.member.id, booking.session.id, booking.id]
     run_sql(sql, values)
+
+
+
+    
+  

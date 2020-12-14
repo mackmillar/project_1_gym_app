@@ -12,7 +12,8 @@ CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     date VARCHAR(255),
-    description TEXT
+    description TEXT,
+    capacity INT
 );
 
 CREATE TABLE bookings (

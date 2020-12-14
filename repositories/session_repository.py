@@ -5,8 +5,8 @@ from models.booking import Booking
 
 
 def save(session):
-    sql = "INSERT INTO sessions (title, date, description) VALUES (%s, %s, %s) RETURNING *"
-    values = [session.title, session.date, session.description]
+    sql = "INSERT INTO sessions (title, date, description, capacity) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [session.title, session.date, session.description, session.capacity]
     results = run_sql(sql, values)
     id = results[0]['id']
     session.id = id
@@ -17,7 +17,7 @@ def select_all():
     sql = "SELECT * FROM sessions"
     results = run_sql(sql)
     for result in results:
-        session = Session(result["title"], result['date'], result['description'], result["id"])
+        session = Session(result["title"], result['date'], result['description'], result['capacity'], result["id"])
         sessions.append(session)
     return sessions
 
@@ -25,7 +25,7 @@ def select(id):
     sql = "SELECT * FROM sessions WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    session = Session(result["title"], result['date'], result['description'], result["id"])
+    session = Session(result["title"], result['date'], result['description'], result['capacity'], result["id"])
     return session
 
 def delete(id):
@@ -39,8 +39,8 @@ def delete_all():
     run_sql(sql)
 
 def update(session):
-    sql = "UPDATE sessions SET (title, date, description) = (%s, %s, %s) WHERE id = %s"
-    values = [session.title, session.date, session.description, session.id]
+    sql = "UPDATE sessions SET (title, date, description, capacity) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [session.title, session.date, session.description, session.capacity, session.id]
     run_sql(sql, values)
 
 def members(session):
@@ -55,6 +55,8 @@ def members(session):
         members.append(member)
 
     return members
+
+
 
 def select_attendees_of_session(id):
     attendees = []
