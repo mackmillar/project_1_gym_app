@@ -8,13 +8,7 @@
 
 <p>Date: {{ session.description }}</p>
 
-<h3>Attending:</h3>
 
-<ul>
-    {% for member in attending %}
-    <li>{{member.name}}</li>
-    {% endfor %}
-</ul>
 
 <form action="/sessions/{{ session.id }}" method="POST">
     <div>

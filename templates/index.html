@@ -8,7 +8,7 @@
     <form action="/bookings" method="POST" id="booking-section">
         <div >
             <label for="member">Member:</label>
-            <select name="member_id" id="dropdown">
+            <select name="member_id" class="dropdown">
                 {% for member in members %}
                 <option value="{{ member.id }}">
                     {{ member.name }}
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label for="session">Class:</label>
-            <select name="session_id" id="dropdown">
+            <select name="session_id" class="dropdown">
                 {% for session in sessions %}
                 <option value="{{ session.id }}">
                     {{ session.title }}
@@ -42,16 +42,24 @@
         <a class="button" href="/sessions/new">+ Create class</a>
     </div>
 
-<hr>
+</section>
 
-{% for session in sessions %}
-<a class="session-links" href="/sessions/{{ session.id }}">
-<section class="session-tile">
-    <h5>{{ session.date }}</h5>
-    <h2>{{ session.title }}</h2>
-    <p>{{ session.description }}</p>
-</section>
-</a>
+<hr>
+<div id=class-list>
+
+    {% for session in sessions %}
+
+    <a class="session-links" href="/sessions/{{ session.id }}">
+        <section class="session-tile">
+            <h5>{{ session.date }}</h5>
+            <h2>{{ session.title }}</h2>
+            <p>{{ session.description }}</p>
+        </section>
+    </a>
+
+
 {% endfor %}
-</section>
+
+</div>
+
 {% endblock %}
