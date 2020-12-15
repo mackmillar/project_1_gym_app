@@ -10,11 +10,11 @@ bookings_blueprint = Blueprint("bookings", __name__)
 # CREATE
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
-    member_id = request.form["member_id"]
     session_id = request.form["session_id"]
+    member_id = request.form["member_id"]
     member = member_repository.select(member_id)
     session = session_repository.select(session_id)
-    if session.counter < session.capacity:
+    if session.capacity < session.counter:
         session.add_to_counter(session_id)
         new_booking = Booking(member, session)
         booking_repository.save(new_booking)
