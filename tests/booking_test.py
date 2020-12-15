@@ -25,13 +25,3 @@ class TestBooking(unittest.TestCase):
     def test_booking(self):
         self.assertEqual(self.member_1, self.booking_1.member)
 
-# def return_number_booked(self, bookings, session):
-#     counter = 0
-#     for booking in bookings:
-#         if bookind.id = session.id:
-#             counter += 1
-#     return counter
-
-    def test_number_booked(self):
-
-        self.assertEqual(2 , self.return_number_booked(session_1))
