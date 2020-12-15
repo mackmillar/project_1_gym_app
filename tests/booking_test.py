@@ -5,7 +5,7 @@ from models.member import Member
 from models.booking import Booking
 
 
-class TestSession(unittest.TestCase):
+class TestBooking(unittest.TestCase):
 
     def setUp(self):
         self.session_1 = Session("Swimming", "Fri 24th", "this is a description", 2)
@@ -19,9 +19,19 @@ class TestSession(unittest.TestCase):
         self.booking_1 = Booking(self.member_1, self.session_1)
         self.booking_2 = Booking(self.member_2, self.session_1)
 
+        self.bookings = [self.booking_1, self.booking_2]
 
-    def test_session_has_capacity(self):
-        self.assertEqual(2, self.session_1.get_capacity())
 
-    # def test_session_has_counter(self): TO_DO
-    #     self.assertEqual(0, self.session_1.counter)
+    def test_booking(self):
+        self.assertEqual(self.member_1, self.booking_1.member)
+
+# def return_number_booked(self, bookings, session):
+#     counter = 0
+#     for booking in bookings:
+#         if bookind.id = session.id:
+#             counter += 1
+#     return counter
+
+    def test_number_booked(self):
+
+        self.assertEqual(2 , self.return_number_booked(session_1))

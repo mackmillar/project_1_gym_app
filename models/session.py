@@ -4,16 +4,10 @@ class Session:
         self.date = date
         self.description = description
         self.capacity = capacity
+        self.counter = 0
         self.id = id
 
     def get_capacity(self):
         return self.capacity
 
     
-    # attending_list = session_repository.members(booking.session)
-    # attending_count = len(attending_list)
-
-    # capacity = booking.session.capacity
-    # if attending_count >= capacity:
-    #     return None
-    # else:     

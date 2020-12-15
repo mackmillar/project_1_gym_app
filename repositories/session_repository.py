@@ -12,6 +12,7 @@ def save(session):
     session.id = id
     return session
 
+
 def select_all():
     sessions = []
     sql = "SELECT * FROM sessions"
@@ -55,7 +56,6 @@ def members(session):
         members.append(member)
 
     return members
-
 
 
 def select_attendees_of_session(id):
