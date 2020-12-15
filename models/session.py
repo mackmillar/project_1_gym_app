@@ -10,9 +10,10 @@ class Session:
     def get_capacity(self):
         return self.capacity
 
-    def add_to_counter(self):
-        self.counter += 1
-        return self.counter
+    def add_to_counter(self, session):
+        if self.counter < self.capacity:
+            self.counter += 1
+            return self.counter
 
 
     

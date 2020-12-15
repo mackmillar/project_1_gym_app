@@ -14,6 +14,9 @@ def create_booking():
     session_id = request.form["session_id"]
     member = member_repository.select(member_id)
     session = session_repository.select(session_id)
-    new_booking = Booking(member, session)
-    booking_repository.save(new_booking)
+    if session.capacity < session.counter:
+        session.add_to_counter(session_id)
+        new_booking = Booking(member, session)
+        booking_repository.save(new_booking)
     return redirect("/")
+    
