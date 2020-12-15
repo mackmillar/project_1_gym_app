@@ -10,7 +10,9 @@ def save(booking):
     values = [booking.member.id, booking.session.id]
     results = run_sql(sql, values)
     booking.id = results[0]['id']
+    Session.add_to_counter(booking.session)
     return booking
+
 
 def select_all():
     bookings = []
@@ -50,5 +52,3 @@ def update(booking):
 
 
 
-    
-  

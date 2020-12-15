@@ -34,3 +34,5 @@ class TestSession(unittest.TestCase):
         self.session_1.add_to_counter()
         self.session_1.add_to_counter()
         self.assertEqual(self.session_1.capacity, self.session_1.counter)
+
+    
