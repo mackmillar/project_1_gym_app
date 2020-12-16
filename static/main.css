@@ -9,6 +9,12 @@ h3.member-font {
     color: #121212;
     text-transform: lowercase;
 }
+h4 {
+    font: normal normal lighter 14px/22px Poppins;
+    margin-top: -1.5em;
+    letter-spacing: 0px;
+    color: #606060; 
+}
 
 h3.grey-title {
     font: normal normal normal 25px/38px Poppins;
@@ -64,6 +70,12 @@ p {
     color: #121212;
     text-decoration: none;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.member-tile > #profile-icon {
+    margin-right: 1em;
+    margin-left: 1em;
 }
 .member-tile:hover{
     color: #121212;
@@ -71,8 +83,10 @@ p {
     background-color: white;
 }
 .member-tile {
-    padding: 0.5em;
+    padding-left: 0.5em;
+    margin-bottom: 2em;
 }
+
 
 .button {
     max-height: 1.5em;
@@ -110,6 +124,13 @@ input[type=submit]:hover{
     margin-top: 1.4em;
 }
 
+#attending-members {
+    display: flex;
+    flex-wrap: wrap;
+}
+#members-list-attending{
+    display: flex;
+}
 
 #members-list {
     margin-top: 50px;
@@ -173,7 +194,7 @@ header {
     height: min-content;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:center;
     margin-bottom: 1em;
 }
 
@@ -187,10 +208,10 @@ header {
 
 .session-tile {
     background-color: rgb(255, 255, 255);
-    height: 230px;
-    min-width: 240px;
-    max-width: 320px;
-    flex: 30%;
+    min-height: 260px;
+    min-width: 230px;
+    max-width: 250px;
+    flex: 33%;
     padding: 2% 6% 2% 6%;
     border-radius: 5px;
     box-shadow: 0px 0px 6px #00000029;
@@ -222,11 +243,46 @@ text-transform: uppercase;
     padding-top: 5em;
     padding-bottom: 5em;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    text-decoration: none;
     border-radius: 25px;
     margin-bottom: 4em;
     margin-top: 4em;
+}
+
+.create-form > .form-wrap > label {
+    color: #353535;
+    margin-bottom: 0.5em;
+}
+input[type=text], select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=number], select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.create-form > .form-wrap {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    flex-direction: column;
+}
+.create-form > .form-wrap > #description {
+    height: 5em;
+}
+.create-form > .form-wrap > #quantity {
+    width: 20%;
+    margin-bottom: 2%;
+}
+
+.create-form > .form-wrap > #capacity {
+    width: 20%;
+    margin-bottom: 2%;
 }
