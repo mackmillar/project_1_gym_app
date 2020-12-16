@@ -3,16 +3,22 @@
 
 <h2>Edit this member</h2>
 
-<form action="/members/{{ member.id }}" method="POST">
-    <div>
+<form action="/members/{{ member.id }}" method="POST" class="create-form">
+    <div class="form-wrap">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ member.name }}">
+        <input type="text" id="name" name="name" value="{{ member.name }}" class="text-input">
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" value="{{ member.email }}">
+        <input type="text" id="email" name="email" value="{{ member.email }}" class="text-input">
+        <div id="radio-buttons">
+        <div id="radio">
         <label for="premium">standard:</label>
         <input type="radio" id="premium" name="premium" value="False">
+        </div>
+        <div id="radio">
         <label for="premium">Premium</label>
         <input type="radio" id="premium" name="premium" value="True">
+        </div>
+        </div>
         <input type="submit">
     </div>
 </form>

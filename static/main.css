@@ -252,6 +252,17 @@ text-transform: uppercase;
     color: #353535;
     margin-bottom: 0.5em;
 }
+
+.create-form > .form-wrap > #radio-buttons {
+    display: flex;
+    width: 66%;
+    align-items:center;
+}
+
+.create-form > .form-wrap > #radio-buttons > #radio {
+    margin-right: 5em;
+}
+
 input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
