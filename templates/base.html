@@ -19,7 +19,13 @@
         <section id="members-list">
             {% for member in members %}
             <section class="member-tile">
-                <h3 class="member-font"><a href="/members/{{ member.id }}/edit">{{ member.name }}</a></h3>  
+                <h3 class="member-font"><a href="/members/{{ member.id }}/edit">{{ member.name }}</a></h3>
+                {% if member.premium %}
+                    <h4>premium</h4>
+                {% else %}
+                    <h4>standard</h4>
+                {% endif %}
+
             </section>
             {% endfor %}
         </section>

@@ -4,8 +4,8 @@ from models.member import Member
 from models.session import Session
 
 def save(member):
-    sql = "INSERT INTO members (name, email) VALUES (%s, %s) RETURNING *"
-    values = [member.name, member.email]
+    sql = "INSERT INTO members (name, email, premium) VALUES (%s, %s, %s) RETURNING *"
+    values = [member.name, member.email, member.premium]
     results = run_sql(sql, values)
     id = results[0]['id']
     member.id = id
@@ -16,7 +16,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for result in results:
-        member = Member(result["name"], result['email'], result["id"])
+        member = Member(result["name"], result['email'], result['premium'], result["id"])
         members.append(member)
     return members
 
@@ -24,7 +24,7 @@ def select(id):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    member = Member(result["name"], result['email'], result["id"])
+    member = Member(result["name"], result['email'], result['premium'], result["id"])
     return member
 
 def delete_all():
@@ -37,8 +37,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(member):
-    sql = "UPDATE members SET (name, email) = (%s, %s) WHERE id = %s"
-    values = [member.name, member.email, member.id]
+    sql = "UPDATE members SET (name, email, premium) = (%s, %s, %s) WHERE id = %s"
+    values = [member.name, member.email, member.premium, member.id]
     run_sql(sql, values)
 
 def sessions(member):

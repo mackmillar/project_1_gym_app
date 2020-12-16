@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS sessions;
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    premium BOOLEAN,
     email VARCHAR(255)
 );
 

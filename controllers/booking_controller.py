@@ -1,6 +1,8 @@
 from flask import Blueprint, Flask, redirect, render_template, request
+import pdb
 
 from models.booking import Booking
+from models.session import Session
 import repositories.booking_repository as booking_repository
 import repositories.member_repository as member_repository
 import repositories.session_repository as session_repository
@@ -14,9 +16,12 @@ def create_booking():
     member_id = request.form["member_id"]
     member = member_repository.select(member_id)
     session = session_repository.select(session_id)
-    if session.capacity < session.counter:
-        session.add_to_counter(session_id)
+    if session_repository.how_many_members(session_id) < session.capacity:
         new_booking = Booking(member, session)
         booking_repository.save(new_booking)
-    return redirect("/")
+        return redirect("/")
+    else:
+        return render_template('bookings/full.html')
+
+
     

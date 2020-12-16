@@ -64,6 +64,10 @@ def select_attendees_of_session(id):
     values = [id]
     results = run_sql(sql, values)
     for result in results:
-        member = Member(result["name"], result['email'], result["id"])
+        member = Member(result["name"], result['email'], result['premium'], result["id"])
         attendees.append(member)
     return attendees
+
+def how_many_members(id):
+    booked_members = select_attendees_of_session(id)
+    return len(booked_members)
