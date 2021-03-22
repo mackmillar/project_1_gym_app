@@ -23,19 +23,19 @@ class TestSession(unittest.TestCase):
     def test_session_has_capacity(self):
         self.assertEqual(2, self.session_1.get_capacity())
 
-    def test_session_has_counter(self):
-        self.assertEqual(0, self.session_1.counter)
+    # def test_session_has_counter(self):
+    #     self.assertEqual(0, self.session_1.counter)
 
-    def test_can_add_to_counter(self):
-        self.session_1.add_to_counter()
-        self.assertEqual(1, self.session_1.counter)
+    # def test_can_add_to_counter(self):
+    #     self.session_1.add_to_counter()
+    # #     self.assertEqual(1, self.session_1.counter)
 
-    def test_counter_equals_or_greater_than_capacity(self):
-        self.session_1.add_to_counter()
-        self.session_1.add_to_counter()
-        self.assertEqual(self.session_1.capacity, self.session_1.counter)
+    # def test_counter_equals_or_greater_than_capacity(self):
+    #     self.session_1.add_to_counter()
+    #     self.session_1.add_to_counter()
+    #     self.assertEqual(self.session_1.capacity, self.session_1.counter)
 
-    def test_counter_works(self):
-        self.session_1.add_to_counter()
-        self.session_1.add_to_counter()
-        self.assertEqual(self.session_1.counter, 2)
+    # def test_counter_works(self):
+    #     self.session_1.add_to_counter()
+    #     self.session_1.add_to_counter()
+    #     self.assertEqual(self.session_1.counter, 2)
